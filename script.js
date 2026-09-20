@@ -30,6 +30,7 @@ document.querySelectorAll('[data-mobile-slider]').forEach(slider => {
   if (slides.length < 2) {
     return;
   }
+  let activeIndex = 0;
 
   const dots = document.createElement('div');
   dots.className = 'mobile-slider-dots';
@@ -41,17 +42,20 @@ document.querySelectorAll('[data-mobile-slider]').forEach(slider => {
     if (index === 0) {
       dot.classList.add('active');
     }
-    dot.addEventListener('click', () => slide.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' }));
+    dot.addEventListener('click', () => {
+      activeIndex = index;
+      slide.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    });
     dots.append(dot);
     return dot;
   });
 
   slider.after(dots);
 
-  slider.addEventListener('scroll', () => {
+  const updateActiveDot = () => {
     const sliderBox = slider.getBoundingClientRect();
     const sliderCenter = sliderBox.left + sliderBox.width / 2;
-    const activeIndex = slides.reduce((closestIndex, slide, index) => {
+    activeIndex = slides.reduce((closestIndex, slide, index) => {
       const slideBox = slide.getBoundingClientRect();
       const closestBox = slides[closestIndex].getBoundingClientRect();
       const currentDistance = Math.abs(slideBox.left + slideBox.width / 2 - sliderCenter);
@@ -60,7 +64,9 @@ document.querySelectorAll('[data-mobile-slider]').forEach(slider => {
     }, 0);
 
     buttons.forEach((button, index) => button.classList.toggle('active', index === activeIndex));
-  }, { passive: true });
+  };
+
+  slider.addEventListener('scroll', updateActiveDot, { passive: true });
 });
 
 const contactForm = document.querySelector('.contact-form');
