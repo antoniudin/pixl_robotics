@@ -39,6 +39,7 @@ footer .footer-mark{font-size:clamp(2.4rem,5.6vw,4.8rem)}
 footer .footer-mark span{display:inline-block;font-size:.72em;margin-left:.12em}
 footer .footer-instagram{display:inline-flex;align-items:center;gap:.75rem;font-weight:700;border-bottom:0;padding-bottom:0}
 footer .footer-instagram svg{width:32px;height:32px;fill:none;stroke:white;stroke-width:1.6}
+.mobile-instagram{display:none}
 .story{display:grid;align-items:center;min-height:560px;padding:100px 6vw;background:#F7F4EC;border-bottom:0}
 .story-intro{display:grid;align-content:center;justify-items:start;width:100%}
 .story-title-row{display:flex;align-items:center;gap:2rem;margin-bottom:1.8rem}
@@ -133,9 +134,11 @@ footer .footer-instagram svg{width:32px;height:32px;fill:none;stroke:white;strok
 .thanks-card p:not(.kicker){max-width:560px;font-size:1.2rem;line-height:1.6;margin:0 0 2rem}
 .mobile-slider-dots{display:none}
 @media(max-width:620px){
-  .site-header{position:fixed;top:14px;right:14px;width:auto;height:auto;padding:0;background:transparent;border:0;z-index:50}
+  .site-header{position:fixed;top:14px;right:14px;width:auto;height:auto;padding:0;background:transparent;border:0;z-index:50;display:flex;align-items:center;gap:.6rem}
   .brand{display:none}
   .menu{display:block;margin-left:0;background:var(--paper)}
+  .mobile-instagram{display:grid;place-items:center;width:42px;height:42px;border:var(--line);background:var(--paper);color:var(--ink)}
+  .mobile-instagram svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7}
   .site-header nav.open{position:fixed;top:64px;left:5vw;right:5vw;border:var(--line);padding:1.2rem;background:var(--paper);box-shadow:5px 5px 0 var(--ink)}
   .hero{padding:56px 5vw;gap:2rem}
   .hero-title{font-size:clamp(2.65rem,14vw,4.6rem)}
@@ -150,10 +153,10 @@ footer .footer-instagram svg{width:32px;height:32px;fill:none;stroke:white;strok
   .journey .steps{width:100%;justify-self:stretch}
   .journey .step{aspect-ratio:1/1;min-height:270px;border:var(--line)!important}
   .lessons .lesson-grid{width:100%;margin-left:0}
-  .lessons .lesson-grid.mobile-slider{gap:72px!important;scroll-padding-inline:20px;padding:0 20px 12px;margin:0;width:100%}
-  .lessons .lesson-grid.mobile-slider>article{flex:0 0 calc(100% - 40px);max-width:calc(100% - 40px);scroll-snap-align:start}
-  .lessons .lesson{min-height:552px;padding:1.25rem;justify-content:flex-start}
-  .lessons .snippet-art{height:285px;margin:.5rem 0 2.25rem;background:transparent}
+  .lessons .lesson-grid.mobile-slider{gap:72px!important;scroll-padding-inline:24px;padding:0 24px 12px;margin:0;width:100%}
+  .lessons .lesson-grid.mobile-slider>article{flex:0 0 calc(100% - 48px);max-width:calc(100% - 48px);scroll-snap-align:start}
+  .lessons .lesson{min-height:500px;padding:1.25rem;justify-content:flex-start}
+  .lessons .snippet-art{height:235px;margin:.5rem 0 1.65rem;background:transparent}
   .lessons .snippet-art img{object-fit:contain}
   .lessons .lesson h3{margin-top:0}
   .lessons .lesson p{overflow-wrap:break-word}
